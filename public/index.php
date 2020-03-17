@@ -11,7 +11,7 @@
             </section>
 
             <nav class="row text-center py-3">
-                <a class="col-md-6" href="login.php">Login</a>
+                <a class="col-md-6" href="list.php">Show all</a>
                 <a class="col-md-6" href="register.php">Register</a>
             </nav>
         </header>

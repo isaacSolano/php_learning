@@ -1,0 +1,2 @@
+insert into users (name, age, password) values ("Carlos", 23, "mypass")
+/

@@ -18,18 +18,18 @@
             <form class="row py-3" action="register.php" method="POST">
                 <div class="col-md-6 text-center mx-auto">
                     <div class="form-group">
-                        <label for="txtName">Enter username:</label>
+                        <label for="txtName">Enter your name:</label>
                         <input class="form-control" type="text" name="txtName" id="txtName">
                     </div>
 
                     <div class="form-group">
-                        <label for="nAge">Enter your age</label>
-                        <input class="form-control" type="number" name="nAge" id="nAge">
+                        <label for="txtLastName">Enter your last name:</label>
+                        <input class="form-control" type="text" name="txtLastName" id="txtLastName">
                     </div>
 
                     <div class="form-group">
-                        <label for="txtPassword">Enter password</label>
-                        <input class="form-control" type="password" name="txtPassword" id="txtPassword">
+                        <label for="nId">Enter your id number:</label>
+                        <input class="form-control" type="number" name="nId" id="nId">
                     </div>
 
                     <input class="btn btn-primary" type="submit" value="Submit">
@@ -40,23 +40,33 @@
                 <div class="col-md-6 text-center mx-auto">
                     <?php
                         // import controller and class
-                        include('../classes/User.php');
                         include('../controller/register_controller.php');
 
                         // verify that the inputs values are valid
-                        if(isset($_POST['txtName'], $_POST['nAge'], $_POST['txtPassword'])){
+                        if(isset($_POST['txtName'], $_POST['txtLastName'], $_POST['nId'])){
+                            
                             // initiate controller
                             $register_controller = new register_controller(
                                 $_POST['txtName'],
-                                $_POST['nAge'],
-                                $_POST['txtPassword']
+                                $_POST['txtLastName'],
+                                $_POST['nId']
                             );
 
                             // request verification of the info
                             $register_controller->verifyInfo();
 
                             // check result and take dif actions
-                            echo($register_controller->result());
+                            $result = $register_controller->result();
+                            
+                            if($result->err){
+                                echo('
+                                    <p class="text-danger">'. $result->status .'</p>
+                                ');
+                            }else{
+                                echo('
+                                    <p class="text-success">'. $result->status .'</p>
+                                ');
+                            }
                         }
                     ?>
                 </div>
