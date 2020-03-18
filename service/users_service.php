@@ -45,8 +45,8 @@
                 $userObj = new \stdClass();
 
                 $userObj->name = oci_result($stid, 'NAME');
-                $userObj->age = oci_result($stid, 'AGE');
-                $userObj->password = oci_result($stid, 'PASSWORD');
+                $userObj->last_name = oci_result($stid, 'LAST_NAME');
+                $userObj->id = oci_result($stid, 'ID_USER');
             
                 array_push($aUsers, $userObj);
             }
@@ -54,16 +54,5 @@
             return $aUsers;
         }
     }
-
-
-
-    // $query = 'select * from users';
-    // $stid = oci_parse($conn, $query);
-    // oci_execute($stid);
-
-    // while(oci_fetch($stid)){
-    //     echo oci_result($stid, 'NAME');
-    //     echo oci_result($stid, 'AGE');
-    //     echo oci_result($stid, 'PASSWORD');
-    // }
+    
 ?>

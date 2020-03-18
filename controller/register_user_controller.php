@@ -1,7 +1,7 @@
 <?php
     include('../service/users_service.php');
 
-    class register_controller{
+    class register_user_controller{
         public $name;
         public $last_name;
         public $id;
