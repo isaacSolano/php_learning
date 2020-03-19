@@ -6,7 +6,7 @@
     <body class="container">
         <header class="py-5">
             <section class="row text-center">
-                <h2 class="col-md-12">Registration form</h2>
+                <h2 class="col-md-12">Register user</h2>
             </section>
 
             <?php

@@ -14,7 +14,7 @@
             $db = new connection();
             
             if($db->connect()){
-                $query = "select * from users";
+                $query = "select name, last_name, id_user from users";
                 
                 $this->aUsers = $db->get($query);
             
